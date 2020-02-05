@@ -136,7 +136,7 @@ class Main extends PluginBase implements Listener {
                             }
              });
         $form->setTitle("§l§b Booster");
-        $form->setContent("§6Hier kannst du §1Booster den Booster aktivieren!");
+        $form->setContent("§4YT : Crow Balde");
         $form->addButton("§4Abbruch", 0);
         $form->addButton("§dHelp", 1);
         $form->addButton("§dFeed", 2);
