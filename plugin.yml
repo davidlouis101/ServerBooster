@@ -6,7 +6,7 @@ description: Boostersystem
 main: ceepkev77\Main
 commands:
  booster:
-  description: "Server Booster aktivieren"
+  description: "BoosterSystrm"
 permissions:
  booster:
   description: Erlaube die Verwendung aller Booster-Befehle
