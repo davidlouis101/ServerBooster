@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener {
     public $sek = 0;
     public $bba = false;
     public $fba = false;
-    public $prefix = "§bBooster§c §8»§r§l ";
+    public $prefix = "§cBoosterSystem§b §8»§r§l ";
     /** @var string */
     public $noperm = TextFormat::RED . "Du benötigst einen Rang um den Booster zu aktivieren!";
     public $helpHeader =
@@ -69,11 +69,11 @@ class Main extends PluginBase implements Listener {
         if ($config->get("FlyBooster") == true) {
             $player = $event->getPlayer();
             $player->setAllowFlight(TRUE);
-            $player->sendMessage("§bBooster§c §8»§r §aDer FlyBooster ist aktiv, daher ist dein FlyMod aktiviert.");
+            $player->sendMessage("§cBoosterSystem§b §8»§r §6Der FlyBooster ist aktiv, daher ist dein FlyMod aktiviert.");
         } else {
             $player = $event->getPlayer();
            $player->setAllowFlight(FALSE);
-           $player->sendMessage("§bBooster§c §8»§r §cDer FlyBooster ist deaktiviert, daher kannst du nicht Fliegen.");
+           $player->sendMessage("§cBoosterSystem§b §8»§r §6Der FlyBooster ist deaktiviert, daher kannst du nicht Fliegen.");
 	   $player = $event->getPlayer();
           if($player->getGamemode() == 1) {
             $player->setAllowFlight(TRUE);
@@ -83,10 +83,10 @@ class Main extends PluginBase implements Listener {
             $player = $event->getPlayer();
             $effect = new EffectInstance(Effect::getEffect(3), 999999999, 3, false);
             $player->addEffect($effect);
-            $player->sendMessage("§bBooster§c §8»§r §aDer BreakBooster ist aktiv, daher kannst du schneller abbauen.");
+            $player->sendMessage("§cBoosterSystem§b §8»§r §6Der BreakBooster ist aktiv, daher kannst du schneller abbauen.");
         } else {
             $player = $event->getPlayer();
-            $player->sendMessage("§bBooster§c §8»§r §cDer BreakBooster ist deaktiviert.");
+            $player->sendMessage("§cBoosterSystem§b §8»§r §6Der BreakBooster ist deaktiviert.");
             $player->removeAllEffects();
         }
     }
@@ -135,14 +135,14 @@ class Main extends PluginBase implements Listener {
                         break;
                             }
              });
-        $form->setTitle("§l§b Booster");
-        $form->setContent("§6Hier kannst du §1Booster den Booster aktivieren!");
-        $form->addButton("§4Abbruch", 0);
-        $form->addButton("§dHelp", 1);
-        $form->addButton("§dFeed", 2);
-        $form->addButton("§dHeal", 3);
-        $form->addButton("§dFly", 4);
-        $form->addButton("§dBreak", 5);
+        $form->setTitle("§l§cBoosterSystem");
+        $form->setContent("§6Booste Alle Spieler");
+        $form->addButton("§4Abrechen", 0);
+        $form->addButton("§dHilfe", 1);
+        $form->addButton("§dFeed-Boost", 2);
+        $form->addButton("§dHeal-Boost", 3);
+        $form->addButton("§dFly-Boost", 4);
+        $form->addButton("§dBreak-Boost", 5);
         $form->sendToPlayer($sender);
         }
         return true;
@@ -154,7 +154,7 @@ class Main extends PluginBase implements Listener {
                                 $sender->sendMessage($this->noperm);
                                 return true;
                             }
-                            $sender->sendMessage($this->prefix . "§r" . TextFormat::BLUE . "Booster Version 1.2.0 von ceepkev77");
+                            $sender->sendMessage($this->prefix . "§r" . TextFormat::BLUE . "Booster Version 1.2.0 von Crow Balde");
                             return true;
                         case "help":
                         case "?":
@@ -184,7 +184,7 @@ class Main extends PluginBase implements Listener {
                                   $player = $sender->getName();
                                   $p->setHealth(20);                            
                             }
-                                  $this->getServer()->broadcastMessage($this->prefix . "§aDer §bHealBooster §awurde von §b$player §aaktiviert.");
+                                  $this->getServer()->broadcastMessage($this->prefix . "§bDer §cHealBooster §awurde von §b$player §aaktiviert.");
 
                                 return true;
                         case "fly":
@@ -200,7 +200,7 @@ class Main extends PluginBase implements Listener {
 				    
                             $config->set("FlyBooster", true);
                             $config->save();
-                               $this->getServer()->broadcastMessage($this->prefix . "§aDer §bFlyBooster §awurde von §b$player §aaktiviert.\n§r§aDu kannst nun dank dem FlyBooster von §b$player §afliegen.");
+                               $this->getServer()->broadcastMessage($this->prefix . "§bDer §cFlyBooster §awurde von §b$player §aaktiviert.\n§r§aDu kannst nun dank dem FlyBooster von §b$player §afliegen.");
                                $this->getScheduler()->scheduleRepeatingTask(new FlyBooster($this), 30);
 				    return true;
 
@@ -218,7 +218,7 @@ class Main extends PluginBase implements Listener {
                                               $config->set("BreakBooster", true);
                             $config->save();
 				    $this->getScheduler()->scheduleRepeatingTask(new BreakBooster($this), 30);
-                                              $this->getServer()->broadcastMessage($this->prefix . "§aDer §bBreakBooster §awurde von §b$player §aaktiviert.\n§r§aDu kannst nun dank dem BreakBooster von §b$player §aschneller abbauen.");    
+                                              $this->getServer()->broadcastMessage($this->prefix . "§bDer §cBreakBooster §awurde von §b$player §aaktiviert.\n§r§aDu kannst nun dank dem BreakBooster von §b$player §aschneller abbauen.");    
                              return true;
 
     } 
