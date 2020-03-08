@@ -2,11 +2,11 @@ name: Server-Booster
 author: ceepkev77
 api: [3.0.0, 4.0.0]
 version: 1.2.1
-description: Boostersystem
+description: BoosterSystem
 main: ceepkev77\Main
 commands:
  booster:
-  description: "BoosterSystrm"
+  description: "§cBoosterSystem"
 permissions:
  booster:
   description: Erlaube die Verwendung aller Booster-Befehle
